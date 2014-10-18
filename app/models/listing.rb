@@ -10,4 +10,6 @@ class Listing < ActiveRecord::Base
 	end 
 
 validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"] 
+validates :name, :price, :description, presence: true
+validates :price, numericality: { greater_than: 0 }
 end
